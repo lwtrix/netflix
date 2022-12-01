@@ -2,7 +2,7 @@ import { Component } from "react"
 import './css/movie-gallery.css'
 import Spinner from "./Spinner"
 import { Row, Col } from "react-bootstrap"
-
+import SingleMovie from "./SingleMovie"
 
 export default class MovieGallery extends Component {
 
@@ -35,19 +35,16 @@ export default class MovieGallery extends Component {
         const { gallery, isFetching} = this.state;
         return (
             <>
+                <h2 className="text-capitalize gallery-title">{this.gallerySearch} Collection</h2>
                 {isFetching ? <Spinner /> : 
                 
                 <div className="d-flex gallery">
                 {
                     gallery.map((movie) => (
-                        <div key={movie.imdbID} className='gallery-movie'>
-                            <h5>{movie.Title}</h5>
-                            <img src={movie.Poster}/>
-                        </div>
+                        <SingleMovie key={movie.imdbID} id={movie.imdbID} title={movie.Title} img={movie.Poster} />
                     ))
                 }
                 </div>}
-                <h2 className="text-capitalize gallery-title">{this.gallerySearch} Collection</h2>
                 
             </>
             

@@ -2,14 +2,26 @@ import './App.css';
 import MovieGallery from './components/MovieGallery';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import TvShows from './components/TvShows';
+import NotFound from './components/NotFound';
+import NavbarMain from './components/Navbar';
+import MovieDetails from './components/MovieDetails';
+
 function App() {
   return (
-    <div className="App">
-      <h1 className='logo'>Netflex</h1>
-      <MovieGallery gallerySearch="the matrix" />
-      <MovieGallery gallerySearch="naruto" />
-      <MovieGallery gallerySearch="attack on titan" />
-    </div>
+    <BrowserRouter>
+       <div className="App">
+         <NavbarMain />
+         <Routes>
+           <Route element={<TvShows />} path='/' />
+           <Route element={<MovieDetails />} path='/details/:id' />
+           <Route element={<NotFound />} path='*' />
+         </Routes>
+      </div>
+    </BrowserRouter>
+
+   
   );
 }
 

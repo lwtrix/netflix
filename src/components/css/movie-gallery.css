@@ -1,12 +1,9 @@
-
 .gallery {
-    overflow: auto;
-    align-items: center;
+    overflow-x: auto;
     margin-bottom: 25px;
 }
 
 .gallery-title {
-    margin-top: 25px;
     color: #d90913;
 }
 
